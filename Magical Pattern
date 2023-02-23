@@ -1,0 +1,18 @@
+vector < vector < int > > printMagicalPattern(int n) {
+    // Write your code here.
+    int start=n, inc=0, max= 2*n-1;
+    int dec= max;
+    vector<vector<int>> ans(max , vector<int> (max, 0));
+    while(start!=0){
+        for(int row=0 ;row<max; row++){
+            for(int col=0; col<max; col++){
+                if(row==inc|| row==dec-1|| col==inc|| col== dec-1)
+                    ans[row][col]= start;
+            }
+        }
+        start--;
+        inc++;
+        dec--;
+    }
+    return ans;
+}
